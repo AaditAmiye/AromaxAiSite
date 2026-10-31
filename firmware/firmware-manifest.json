@@ -1,0 +1,9 @@
+{
+  "version": "1.4.1",
+  "model": "ARX-30",
+  "url": "https://firebasestorage.googleapis.com/v0/b/aromaxaitest-default-rtdb.appspot.com/o/firmware%2FARX-30%2Fv1.4.1%2Faromaxai-master.bin?alt=media",
+  "sha256": "3e9b14285b7e3f94291845bb08a1a3642398246e4c76766468c4e402b1f83f2a",
+  "size": 1284928,
+  "mandatory": false,
+  "releaseNotes": "ESP-NOW dynamic channel auto-lock & slave ACK reliability improvements."
+}

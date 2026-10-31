@@ -1,0 +1,583 @@
+[
+  {
+    "id": "H01",
+    "channelNumber": 1,
+    "name": "Monsoon Rain",
+    "category": "earthy",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 0,
+    "defaultLight": {
+      "r": 30,
+      "g": 140,
+      "b": 230
+    },
+    "description": "Fresh monsoon rain droplets hitting warm clay soil",
+    "keywords": [
+      "rain",
+      "petrichor",
+      "storm",
+      "wet earth",
+      "monsoon",
+      "downpour"
+    ],
+    "lastModified": 1793122959526
+  },
+  {
+    "id": "H02",
+    "channelNumber": 2,
+    "name": "Chassis Blue LED",
+    "category": "lighting",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 1,
+    "defaultLight": {
+      "r": 0,
+      "g": 113,
+      "b": 227
+    },
+    "isLighting": true,
+    "description": "Hardware lighting blue channel"
+  },
+  {
+    "id": "H03",
+    "channelNumber": 3,
+    "name": "Chassis Green LED",
+    "category": "lighting",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 2,
+    "defaultLight": {
+      "r": 52,
+      "g": 199,
+      "b": 89
+    },
+    "isLighting": true,
+    "description": "Hardware lighting green channel"
+  },
+  {
+    "id": "H04",
+    "channelNumber": 4,
+    "name": "Pizza / Burger",
+    "category": "savory",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 3,
+    "defaultLight": {
+      "r": 235,
+      "g": 120,
+      "b": 40
+    },
+    "chemicalCompound": "2-Acetyl-1-pyrroline",
+    "purityPercent": 98.2,
+    "description": "Fresh baked crust with savory notes"
+  },
+  {
+    "id": "H05",
+    "channelNumber": 5,
+    "name": "Chocolate",
+    "category": "sweet",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 4,
+    "defaultLight": {
+      "r": 110,
+      "g": 60,
+      "b": 35
+    },
+    "chemicalCompound": "Tetramethylpyrazine",
+    "purityPercent": 99.1,
+    "description": "Rich dark roasted cacao notes"
+  },
+  {
+    "id": "H06",
+    "channelNumber": 6,
+    "name": "Royal Perfume",
+    "category": "oriental",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 5,
+    "defaultLight": {
+      "r": 218,
+      "g": 165,
+      "b": 32
+    },
+    "chemicalCompound": "Ambergris / Musk Accord",
+    "purityPercent": 99.5,
+    "description": "Sophisticated royal velvet aroma"
+  },
+  {
+    "id": "H07",
+    "channelNumber": 7,
+    "name": "Faint Rose",
+    "category": "floral",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 6,
+    "defaultLight": {
+      "r": 255,
+      "g": 90,
+      "b": 120
+    },
+    "chemicalCompound": "Geraniol / Damascenone",
+    "purityPercent": 97.8,
+    "description": "Delicate morning blooming petals"
+  },
+  {
+    "id": "H08",
+    "channelNumber": 8,
+    "name": "Vanilla",
+    "category": "sweet",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 7,
+    "defaultLight": {
+      "r": 255,
+      "g": 190,
+      "b": 70
+    },
+    "chemicalCompound": "Vanillin 4-Hydroxy-3-methoxybenzaldehyde",
+    "purityPercent": 99.4,
+    "description": "Warm, comforting bourbon vanilla"
+  },
+  {
+    "id": "H09",
+    "channelNumber": 9,
+    "name": "Faint Chai",
+    "category": "spicy",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 8,
+    "defaultLight": {
+      "r": 210,
+      "g": 140,
+      "b": 65
+    },
+    "chemicalCompound": "Spiced Theaflavin Accord",
+    "purityPercent": 96.5,
+    "description": "Subtle steamed masala tea with ginger notes"
+  },
+  {
+    "id": "H10",
+    "channelNumber": 10,
+    "name": "Biryani / Tadka",
+    "category": "savory",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 9,
+    "defaultLight": {
+      "r": 240,
+      "g": 130,
+      "b": 20
+    },
+    "chemicalCompound": "Allicin / Saffron Terpenes",
+    "purityPercent": 98.6,
+    "description": "Aromatic basmati rice cooked with spices"
+  },
+  {
+    "id": "H11",
+    "channelNumber": 11,
+    "name": "Clove",
+    "category": "spicy",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 10,
+    "defaultLight": {
+      "r": 180,
+      "g": 75,
+      "b": 40
+    },
+    "chemicalCompound": "Eugenol C10H12O2",
+    "purityPercent": 98.9,
+    "description": "Pungent, warm Indonesian clove bud"
+  },
+  {
+    "id": "H12",
+    "channelNumber": 12,
+    "name": "Bergamot Citrus",
+    "category": "citrus",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 11,
+    "defaultLight": {
+      "r": 250,
+      "g": 200,
+      "b": 20
+    },
+    "chemicalCompound": "Linalyl Acetate / Limonene",
+    "purityPercent": 98.4,
+    "description": "Sparkling Italian sun-drenched bergamot peel"
+  },
+  {
+    "id": "H13",
+    "channelNumber": 13,
+    "name": "Chassis Red LED",
+    "category": "lighting",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 12,
+    "defaultLight": {
+      "r": 255,
+      "g": 45,
+      "b": 85
+    },
+    "isLighting": true,
+    "description": "Hardware lighting red channel"
+  },
+  {
+    "id": "H14",
+    "channelNumber": 14,
+    "name": "Cinnamon",
+    "category": "spicy",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 13,
+    "defaultLight": {
+      "r": 195,
+      "g": 85,
+      "b": 35
+    },
+    "chemicalCompound": "Cinnamaldehyde",
+    "purityPercent": 98.5,
+    "description": "Rich warm Ceylon cinnamon bark"
+  },
+  {
+    "id": "H15",
+    "channelNumber": 15,
+    "name": "Bitter Citrus / Alcohol Perfume",
+    "category": "citrus",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 14,
+    "defaultLight": {
+      "r": 245,
+      "g": 215,
+      "b": 30
+    },
+    "chemicalCompound": "Limonene / Bergamot Terpenes",
+    "purityPercent": 97.4,
+    "description": "Crisp, sparkling bitter peel notes"
+  },
+  {
+    "id": "H16",
+    "channelNumber": 16,
+    "name": "Sweet Milk / Mithai",
+    "category": "sweet",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 15,
+    "defaultLight": {
+      "r": 250,
+      "g": 235,
+      "b": 195
+    },
+    "chemicalCompound": "Lactones & Condensed Milk Accord",
+    "purityPercent": 99,
+    "description": "Traditional slow-reduced creamy confection"
+  },
+  {
+    "id": "H17",
+    "channelNumber": 17,
+    "name": "White Cedar",
+    "category": "woody",
+    "status": "working",
+    "board": "master",
+    "boardIndex": 16,
+    "defaultLight": {
+      "r": 76,
+      "g": 140,
+      "b": 90
+    },
+    "chemicalCompound": "Cedrol / Thujopsene",
+    "purityPercent": 98.7,
+    "description": "Crisp Himalayan cedar needles and clear mountain breeze"
+  },
+  {
+    "id": "H18",
+    "channelNumber": 18,
+    "name": "Sandalwood",
+    "category": "woody",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 0,
+    "defaultLight": {
+      "r": 217,
+      "g": 119,
+      "b": 6
+    },
+    "chemicalCompound": "Santalol C15H24O",
+    "purityPercent": 99.2,
+    "description": "Pure Mysore aged heartwood"
+  },
+  {
+    "id": "H19",
+    "channelNumber": 19,
+    "name": "Soil / Mitti + Rain",
+    "category": "earthy",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 1,
+    "defaultLight": {
+      "r": 180,
+      "g": 83,
+      "b": 9
+    },
+    "chemicalCompound": "Geosmin C12H22O",
+    "purityPercent": 99.4,
+    "description": "Petrichor: first rain striking baked summer loam"
+  },
+  {
+    "id": "H20",
+    "channelNumber": 20,
+    "name": "Faint Bitter Smell",
+    "category": "aromatic",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 2,
+    "defaultLight": {
+      "r": 130,
+      "g": 120,
+      "b": 85
+    },
+    "chemicalCompound": "Artemisia / Quassia Extract",
+    "purityPercent": 96,
+    "description": "Botanical herbal bitterness for grounding"
+  },
+  {
+    "id": "H21",
+    "channelNumber": 21,
+    "name": "Garlic Oil / Mustard Oil",
+    "category": "savory",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 3,
+    "defaultLight": {
+      "r": 200,
+      "g": 160,
+      "b": 20
+    },
+    "chemicalCompound": "Allyl Isothiocyanate",
+    "purityPercent": 98.1,
+    "description": "Pungent cold-pressed mustard & crushed garlic"
+  },
+  {
+    "id": "H22",
+    "channelNumber": 22,
+    "name": "Lavender + Lotus perfume",
+    "category": "floral",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 4,
+    "defaultLight": {
+      "r": 155,
+      "g": 81,
+      "b": 224
+    },
+    "chemicalCompound": "Linalool / Nelumbo Extract",
+    "purityPercent": 98.7,
+    "description": "Harmonious tranquil French lavender & water lotus"
+  },
+  {
+    "id": "H23",
+    "channelNumber": 23,
+    "name": "Ayurvedic Pain Relief Spray",
+    "category": "herbal",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 5,
+    "defaultLight": {
+      "r": 80,
+      "g": 180,
+      "b": 140
+    },
+    "chemicalCompound": "Methyl Salicylate & Camphor",
+    "purityPercent": 97.9,
+    "description": "Vigorous eucalyptus and wintergreen vapors"
+  },
+  {
+    "id": "H24",
+    "channelNumber": 24,
+    "name": "Coffee",
+    "category": "roasted",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 6,
+    "defaultLight": {
+      "r": 139,
+      "g": 69,
+      "b": 19
+    },
+    "chemicalCompound": "2-Furfurylthiol",
+    "purityPercent": 99.3,
+    "description": "Freshly pulled dark roast espresso crema"
+  },
+  {
+    "id": "H25",
+    "channelNumber": 25,
+    "name": "Peppermint / Colgate-like mint",
+    "category": "fresh",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 7,
+    "defaultLight": {
+      "r": 0,
+      "g": 199,
+      "b": 190
+    },
+    "chemicalCompound": "Menthol C10H20O",
+    "purityPercent": 99.6,
+    "description": "Piercingly crisp and invigorating crystal mint"
+  },
+  {
+    "id": "H26",
+    "channelNumber": 26,
+    "name": "Wild Jasmine",
+    "category": "floral",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 8,
+    "defaultLight": {
+      "r": 245,
+      "g": 240,
+      "b": 220
+    },
+    "chemicalCompound": "Benzyl Acetate / Jasmine Sambac",
+    "purityPercent": 99.1,
+    "description": "Night-blooming fragrant white jasmine blossom"
+  },
+  {
+    "id": "H27",
+    "channelNumber": 27,
+    "name": "Ester Fruit",
+    "category": "fruity",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 9,
+    "defaultLight": {
+      "r": 240,
+      "g": 90,
+      "b": 160
+    },
+    "chemicalCompound": "Ethyl Butyrate",
+    "purityPercent": 98.2,
+    "description": "Sweet succulent ripe tropical fruits accord"
+  },
+  {
+    "id": "H28",
+    "channelNumber": 28,
+    "name": "Burning Wood",
+    "category": "smoky",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 10,
+    "defaultLight": {
+      "r": 255,
+      "g": 107,
+      "b": 0
+    },
+    "chemicalCompound": "Guaiacol & Syringol",
+    "purityPercent": 99,
+    "description": "Dry birch logs crackling in an open autumn hearth"
+  },
+  {
+    "id": "H29",
+    "channelNumber": 29,
+    "name": "Sweet Cardamom",
+    "category": "spicy",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 11,
+    "defaultLight": {
+      "r": 160,
+      "g": 190,
+      "b": 60
+    },
+    "chemicalCompound": "Terpinyl Acetate & 1,8-Cineole",
+    "purityPercent": 98.4,
+    "description": "Green cardamom pod crushed fresh"
+  },
+  {
+    "id": "H30",
+    "channelNumber": 30,
+    "name": "Chamber Purge & Dispersion Fan",
+    "category": "airflow",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 12,
+    "defaultLight": {
+      "r": 52,
+      "g": 199,
+      "b": 89
+    },
+    "isAirflow": true,
+    "description": "Chamber circulation fan (Hardware Rule: ALWAYS ACTIVE)"
+  },
+  {
+    "id": "H31",
+    "channelNumber": 31,
+    "name": "Water / Neutral Carrier",
+    "category": "carrier",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 13,
+    "defaultLight": {
+      "r": 0,
+      "g": 113,
+      "b": 227
+    },
+    "chemicalCompound": "Ultra-Pure Deionized H2O Carrier",
+    "purityPercent": 99.9,
+    "description": "Neutral humidity balancer; not an active fragrance"
+  },
+  {
+    "id": "H32",
+    "channelNumber": 32,
+    "name": "Hospital / Phenyl",
+    "category": "chemical",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 14,
+    "defaultLight": {
+      "r": 190,
+      "g": 215,
+      "b": 230
+    },
+    "chemicalCompound": "Phenol / Chloroxylenol",
+    "purityPercent": 98.5,
+    "description": "Sterile clinical sanitizing atmosphere"
+  },
+  {
+    "id": "H33",
+    "channelNumber": 33,
+    "name": "Puja / Temple",
+    "category": "resinous",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 15,
+    "defaultLight": {
+      "r": 245,
+      "g": 158,
+      "b": 11
+    },
+    "chemicalCompound": "Camphor, Frankincense & Dhoop",
+    "purityPercent": 99.1,
+    "description": "Sacred sanctum smoke, brass lamps, and sambrani"
+  },
+  {
+    "id": "H34",
+    "channelNumber": 34,
+    "name": "Kesar / Saffron",
+    "category": "oriental",
+    "status": "working",
+    "board": "slave",
+    "boardIndex": 16,
+    "defaultLight": {
+      "r": 255,
+      "g": 153,
+      "b": 51
+    },
+    "chemicalCompound": "Safranal C10H14O",
+    "purityPercent": 99.5,
+    "description": "Kashmiri Mogra saffron stigmata in warm water"
+  }
+]

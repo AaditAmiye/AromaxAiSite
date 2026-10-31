@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Remix Remix AROMAXAI — Olfactory Interface",
+  "description": "Give AI a sense of smell. An AI olfactory interface connected to a physical 34-channel ESP32 aroma device.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

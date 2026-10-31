@@ -1,0 +1,559 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #F8F9FA;
+    color: #1D1D1F;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .pb-safe { padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px); }
+  .pt-safe { padding-top: max(env(safe-area-inset-top, 0px), 12px); }
+}
+
+::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ========================================================
+   Apple iOS Liquid Glass & Specular Reflections Engine
+   ======================================================== */
+
+.ios-glass {
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.58) 60%, rgba(246, 248, 252, 0.45) 100%);
+  backdrop-filter: blur(34px) saturate(210%) contrast(104%);
+  -webkit-backdrop-filter: blur(34px) saturate(210%) contrast(104%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-top: 1.5px solid rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 16px 36px -10px rgba(0, 0, 0, 0.07),
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.98),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.ios-glass-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.62) 55%, rgba(244, 246, 250, 0.5) 100%);
+  backdrop-filter: blur(38px) saturate(215%) contrast(104%);
+  -webkit-backdrop-filter: blur(38px) saturate(215%) contrast(104%);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-top: 1.6px solid rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 24px 54px -14px rgba(0, 0, 0, 0.09),
+    0 4px 14px -2px rgba(0, 0, 0, 0.03),
+    inset 0 2px 2.5px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.035),
+    inset 1.5px 0 2px 0 rgba(255, 255, 255, 0.65),
+    inset -1.5px 0 2px 0 rgba(255, 255, 255, 0.65);
+}
+
+/* Curved liquid reflection wash on card surface */
+.ios-glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(110% 70% at 50% -10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.12) 36%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Polished specular reflection edge along top curve */
+.ios-glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.85) 20%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.85) 80%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 9999px;
+}
+
+.ios-glass-pill {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.84) 0%, rgba(255, 255, 255, 0.56) 100%);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-top: 1.5px solid rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 8px 24px -6px rgba(0, 0, 0, 0.06),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.ios-glass-dark {
+  background: linear-gradient(135deg, rgba(28, 28, 35, 0.88) 0%, rgba(14, 14, 18, 0.78) 100%);
+  backdrop-filter: blur(36px) saturate(200%);
+  -webkit-backdrop-filter: blur(36px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.32);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), inset 0 1.5px 1.5px rgba(255, 255, 255, 0.28);
+}
+
+.glass-reflection-rim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.95) 25%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.95) 75%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ios-glass-specular {
+  position: relative;
+  overflow: hidden;
+}
+.ios-glass-specular::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 55%);
+  pointer-events: none;
+}
+
+.ios-dock-glass {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.48) 100%);
+  backdrop-filter: blur(42px) saturate(230%) contrast(106%);
+  -webkit-backdrop-filter: blur(42px) saturate(230%) contrast(106%);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-top: 1.8px solid rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 26px 65px -10px rgba(0, 0, 0, 0.16),
+    0 4px 18px rgba(0, 0, 0, 0.04),
+    inset 0 2px 2.5px rgba(255, 255, 255, 1),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Tactile iOS Liquid Buttons */
+.ios-liquid-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ios-liquid-btn:active {
+  transform: scale(0.96);
+}
+.ios-liquid-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1.2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.85) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 9999px;
+}
+.ios-liquid-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 55%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Emerald Liquid Primary Button */
+.ios-liquid-btn-emerald {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #10B981 0%, #059669 100%);
+  box-shadow:
+    0 8px 24px -4px rgba(16, 185, 129, 0.4),
+    0 2px 6px rgba(16, 185, 129, 0.2),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ios-liquid-btn-emerald:hover {
+  background: linear-gradient(180deg, #14c58b 0%, #059669 100%);
+  box-shadow:
+    0 12px 28px -4px rgba(16, 185, 129, 0.45),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.2);
+}
+.ios-liquid-btn-emerald:active {
+  transform: scale(0.96);
+}
+.ios-liquid-btn-emerald::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1.2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.9) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 9999px;
+}
+.ios-liquid-btn-emerald::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 50%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Organic Morphing Animation for Fluid Ambient Caustics */
+@keyframes liquidBlobFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(25px, -28px) scale(1.08) rotate(5deg);
+  }
+  66% {
+    transform: translate(-20px, 22px) scale(0.95) rotate(-4deg);
+  }
+}
+@keyframes liquidBlobMorph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 35% 65% 60% 40% / 45% 55% 45% 55%;
+  }
+}
+.liquid-ambient-blob {
+  animation: liquidBlobFloat 18s ease-in-out infinite, liquidBlobMorph 14s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
+/* ========================================================
+   Apple Clean White Light Theme (:not(.dark))
+   ======================================================== */
+html:not(.dark),
+html:not(.dark) body {
+  background-color: #F8F9FA !important;
+  color: #1D1D1F !important;
+}
+
+/* ========================================================
+   Apple OLED Midnight Dark Theme (.dark)
+   ======================================================== */
+.dark body,
+html.dark,
+html.dark body {
+  background-color: #000000 !important;
+  color: #F4F4F5 !important;
+}
+
+/* Universal pure dark backgrounds */
+.dark .bg-\[\#F2F4F7\],
+.dark .bg-\[\#F8F9FA\],
+.dark .bg-\[\#f8f9fa\],
+.dark .bg-\[\#f5f5f7\],
+.dark .bg-\[\#F5F5F7\],
+.dark .bg-\[\#EBEBEF\],
+.dark .bg-\[\#ebebef\],
+.dark .bg-\[\#F0F7FF\],
+.dark .bg-\[\#E5E5EA\],
+.dark .bg-\[\#FFF5F5\],
+.dark .bg-\[\#FFFBEB\],
+.dark .bg-blue-50,
+.dark .bg-amber-50,
+.dark .bg-red-50,
+.dark .bg-emerald-50,
+.dark .bg-stone-100,
+.dark .bg-stone-200 {
+  background-color: #121216 !important;
+  color: #F4F4F5 !important;
+}
+
+.dark .bg-white {
+  background-color: #121216 !important;
+  color: #F4F4F5 !important;
+}
+
+.dark [class*="bg-white/"],
+.dark .bg-white\/40,
+.dark .bg-white\/50,
+.dark .bg-white\/60,
+.dark .bg-white\/70,
+.dark .bg-white\/75,
+.dark .bg-white\/80,
+.dark .bg-white\/85,
+.dark .bg-white\/90,
+.dark .bg-white\/95 {
+  background-color: rgba(18, 18, 24, 0.85) !important;
+  color: #F4F4F5 !important;
+}
+
+.dark [class*="hover:bg-white"]:hover,
+.dark .hover\:bg-white:hover,
+.dark .hover\:bg-white\/70:hover,
+.dark .hover\:bg-white\/80:hover,
+.dark .hover\:bg-white\/85:hover,
+.dark .hover\:bg-\[\#EBEBEF\]:hover,
+.dark .hover\:bg-stone-300:hover {
+  background-color: rgba(32, 32, 40, 0.95) !important;
+}
+
+/* Text colors */
+.dark .text-\[\#1D1D1F\],
+.dark [class*="text-[#1D1D1F]"] {
+  color: #F4F4F5 !important;
+}
+
+.dark .text-\[\#86868B\],
+.dark [class*="text-[#86868B]"] {
+  color: #A1A1AA !important;
+}
+
+.dark .text-\[\#515154\],
+.dark [class*="text-[#515154]"] {
+  color: #B0B0B8 !important;
+}
+
+.dark .text-\[\#48484A\],
+.dark [class*="text-[#48484A]"] {
+  color: #D4D4D8 !important;
+}
+
+/* Borders & Rings */
+.dark [class*="border-white"],
+.dark .border-white,
+.dark .border-white\/60,
+.dark .border-white\/70,
+.dark .border-white\/80,
+.dark .border-white\/90,
+.dark .border-blue-100,
+.dark .border-amber-200,
+.dark .border-amber-200\/80,
+.dark .border-stone-200,
+.dark [class*="border-stone-"],
+.dark .border-black\/\[0\.03\],
+.dark .border-black\/\[0\.04\],
+.dark .border-black\/\[0\.05\],
+.dark .border-black\/\[0\.06\],
+.dark .border-black\/\[0\.08\],
+.dark .border-black\/\[0\.1\],
+.dark .border-black\/\[0\.10\],
+.dark .border-black\/\[0\.12\],
+.dark .border-black\/20 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.dark [class*="ring-black/"] {
+  --tw-ring-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Glass themes */
+.dark .ios-glass {
+  position: relative;
+  background: linear-gradient(135deg, rgba(26, 26, 32, 0.88) 0%, rgba(16, 16, 22, 0.78) 100%) !important;
+  backdrop-filter: blur(38px) saturate(210%) contrast(105%) !important;
+  -webkit-backdrop-filter: blur(38px) saturate(210%) contrast(105%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+  box-shadow:
+    0 20px 48px -10px rgba(0, 0, 0, 0.85),
+    0 2px 10px rgba(0, 0, 0, 0.5),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark .ios-glass-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(28, 28, 36, 0.9) 0%, rgba(18, 18, 24, 0.82) 55%, rgba(12, 12, 16, 0.9) 100%) !important;
+  backdrop-filter: blur(42px) saturate(210%) contrast(106%) !important;
+  -webkit-backdrop-filter: blur(42px) saturate(210%) contrast(106%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-top: 1.6px solid rgba(255, 255, 255, 0.32) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+  box-shadow:
+    0 26px 65px -12px rgba(0, 0, 0, 0.95),
+    0 6px 20px -2px rgba(0, 0, 0, 0.7),
+    inset 0 1.8px 2.2px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.6),
+    inset 1.5px 0 1.5px 0 rgba(255, 255, 255, 0.08),
+    inset -1.5px 0 1.5px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark .ios-glass-card::before {
+  background: radial-gradient(110% 70% at 50% -10%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 36%, transparent 70%) !important;
+}
+
+.dark .ios-glass-card::after {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.45) 20%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.45) 80%, transparent 100%) !important;
+}
+
+.dark .ios-glass-pill {
+  position: relative;
+  background: linear-gradient(135deg, rgba(32, 32, 40, 0.9) 0%, rgba(18, 18, 24, 0.8) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+  box-shadow:
+    0 8px 24px -4px rgba(0, 0, 0, 0.75),
+    inset 0 1.5px 1.8px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .ios-dock-glass {
+  position: relative;
+  background: linear-gradient(180deg, rgba(24, 24, 30, 0.94) 0%, rgba(12, 12, 16, 0.88) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-top: 1.8px solid rgba(255, 255, 255, 0.35) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow:
+    0 26px 70px -10px rgba(0, 0, 0, 0.98),
+    inset 0 2px 2.5px rgba(255, 255, 255, 0.24),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.7) !important;
+}
+
+.dark .shadow-xs,
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark textarea,
+.dark input[type="text"],
+.dark input[type="search"],
+.dark input[type="number"],
+.dark input[type="password"] {
+  background-color: rgba(18, 18, 24, 0.9) !important;
+  color: #F4F4F5 !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.dark textarea::placeholder,
+.dark input::placeholder {
+  color: #71717A !important;
+}
+
+/* Modals & Dialogs in dark mode */
+.dark .bg-white.rounded-3xl,
+.dark .bg-white.rounded-2xl,
+.dark .bg-white.rounded-\[32px\],
+.dark .bg-white\/80.rounded-\[32px\],
+.dark .bg-white\/95.rounded-\[32px\] {
+  background-color: #101014 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Dark mode action buttons */
+.dark button.bg-\[\#1D1D1F\],
+.dark a.bg-\[\#1D1D1F\] {
+  background-color: #24242C !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+.dark button.bg-\[\#1D1D1F\]:hover,
+.dark a.bg-\[\#1D1D1F\]:hover {
+  background-color: #32323D !important;
+}
+
+/* Play buttons and circular white buttons */
+.dark button.bg-white\/95,
+.dark button.bg-white {
+  background-color: #1E1E26 !important;
+  color: #FFFFFF !important;
+}
+
+.dark button.bg-white\/95:hover,
+.dark button.bg-white:hover {
+  background-color: #2B2B36 !important;
+}
+
+.dark .bg-black\/\[0\.05\],
+.dark .bg-black\/\[0\.03\],
+.dark .bg-black\/\[0\.04\] {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+
+/* ========================================================
+   Thanos Snap Disintegration & Reconstitution Effects
+   ======================================================== */
+@keyframes thanosDisintegrate {
+  0% {
+    filter: blur(0px) brightness(1);
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    filter: blur(1.5px) contrast(120%) brightness(1.1);
+    opacity: 0.9;
+    transform: scale(0.998) skewX(0.2deg);
+  }
+  70% {
+    filter: blur(4px) contrast(140%) brightness(1.2);
+    opacity: 0.45;
+    transform: scale(0.99) skewX(-0.5deg);
+  }
+  100% {
+    filter: blur(8px) contrast(160%) brightness(0.8);
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes thanosReconstitute {
+  0% {
+    filter: blur(8px) contrast(160%) brightness(0.8);
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  35% {
+    filter: blur(4px) contrast(140%) brightness(1.2);
+    opacity: 0.55;
+    transform: scale(0.99) skewX(0.4deg);
+  }
+  75% {
+    filter: blur(1.5px) contrast(110%) brightness(1.05);
+    opacity: 0.92;
+    transform: scale(0.998);
+  }
+  100% {
+    filter: blur(0px) contrast(100%) brightness(1);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.snap-vanishing-page {
+  animation: thanosDisintegrate 1.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
+  transform-origin: top left;
+}
+
+.snap-reconstituting-page {
+  animation: thanosReconstitute 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+  transform-origin: top left;
+}
+
+

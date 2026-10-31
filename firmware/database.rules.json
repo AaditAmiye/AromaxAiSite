@@ -1,0 +1,48 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    },
+    "devices": {
+      "$deviceId": {
+        ".read": "auth != null && (data.child('ownerUid').val() == auth.uid || !data.child('ownerUid').exists())",
+        
+        "command": {
+          ".write": "auth != null && (data.parent().child('ownerUid').val() == auth.uid || !data.parent().child('ownerUid').exists())",
+          ".validate": "newData.hasChildren(['commandId', 'masterMask', 'slaveMask', 'timestamp'])"
+        },
+        
+        "heartbeat": {
+          ".write": true
+        },
+        
+        "state": {
+          ".write": true
+        },
+
+        "info": {
+          ".write": true
+        },
+
+        "ota": {
+          ".read": "auth != null && data.parent().child('ownerUid').val() == auth.uid",
+          "action": {
+            ".write": "auth != null && data.parent().parent().child('ownerUid').val() == auth.uid"
+          },
+          ".write": true
+        },
+
+        "ownerUid": {
+          ".write": "auth != null && (!data.exists() || data.val() == auth.uid)"
+        }
+      }
+    },
+    "firmware": {
+      ".read": true,
+      ".write": "auth != null && auth.token.admin == true"
+    }
+  }
+}
